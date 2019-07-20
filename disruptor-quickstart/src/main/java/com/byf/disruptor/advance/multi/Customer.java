@@ -24,6 +24,7 @@ public class Customer implements WorkHandler<Order> {
         Thread.sleep(1 * random.nextInt(5));
         log.info("Customer:{}, event ID:{}",this.customerId,event.getId());
         count.getAndIncrement();
+        Main.countDownLatch.countDown();
     }
 
     public int getCount(){

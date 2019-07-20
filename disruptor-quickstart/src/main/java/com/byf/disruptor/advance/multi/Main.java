@@ -5,12 +5,16 @@ import com.lmax.disruptor.dsl.ProducerType;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.UUID;
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Executors;
 
 @Slf4j
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    static CyclicBarrier cyclicBarrier = new CyclicBarrier(101);
+    static CountDownLatch countDownLatch = new CountDownLatch(10000);
+    public static void main(String[] args) throws InterruptedException, BrokenBarrierException {
         RingBuffer<Order> ringBuffer =
                 RingBuffer.create(ProducerType.MULTI,
                         new EventFactory<Order>() {
@@ -54,16 +58,21 @@ public class Main {
                     log.error("exception",e);
                 }
                 for (int j = 0; j < 100; j++) {
-                    producer.sendData(UUID.randomUUID().toString());
+                    try {
+                        producer.sendData(UUID.randomUUID().toString());
+                    } catch (BrokenBarrierException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }).start();
         }
 
-        Thread.sleep(2000);
         log.info("-----------线程创建完毕，开始生产数据--------------");
         latch.countDown();
-        Thread.sleep(5000);
-        log.info("第3个消费者处理总数：{}",customers[2].getCount());
+        countDownLatch.await();
+        log.info("100个消费者处理总数：{}",customers[2].getCount());
     }
     static class EventExceptionHandler implements ExceptionHandler<Order>{
 
