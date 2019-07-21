@@ -5,7 +5,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>disruptor-quickstart</module>
-	</modules>
+        <module>../disruptor-src/disruptor</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -33,11 +34,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.lmax</groupId>
-			<artifactId>disruptor</artifactId>
-			<version>3.3.2</version>
-		</dependency>
 		<!-- 顺序UUID -->
 		<dependency>
 			<groupId>com.fasterxml.uuid</groupId>
@@ -50,9 +46,9 @@
 			<version>1.16.18</version>
 		</dependency>
 		<dependency>
-			<groupId>com.lmax</groupId>
+			<groupId>com.lmax.src</groupId>
 			<artifactId>disruptor</artifactId>
-			<version>3.3.2</version>
+			<version>3.4.3</version>
 		</dependency>
 	</dependencies>
 

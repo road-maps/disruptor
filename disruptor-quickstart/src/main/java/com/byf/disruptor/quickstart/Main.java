@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         // 1.实例化Disruptor对象
         OrderEventFactory orderEventFactory = new OrderEventFactory();
-        int ringBufferSize = 1024 * 1024;
+        int ringBufferSize = 4;
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         /**
          * 1 eventFactory: 消息(event)工厂对象
@@ -40,7 +40,7 @@ public class Main {
 
         OrderEventProducer producer = new OrderEventProducer(ringBuffer);
         ByteBuffer byteBuffer = ByteBuffer.allocate(8);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 25; i++) {
             byteBuffer.putLong(0,i);
             producer.setData(byteBuffer);
         }
