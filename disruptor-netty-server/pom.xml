@@ -2,27 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<packaging>pom</packaging>
-	<modules>
-		<module>disruptor-quickstart</module>
-        <module>../disruptor-src/disruptor</module>
-        <module>disruptor-netty-client</module>
-        <module>disruptor-netty-com</module>
-        <module>disruptor-netty-server</module>
-    </modules>
+
+	<groupId>com.bfxy</groupId>
+	<artifactId>disruptor-netty-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>disruptor-netty-server</name>
+	<description>disruptor-netty-server</description>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.21.RELEASE</version>
+		<version>2.0.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.byf</groupId>
-	<artifactId>disruptor</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>disruptor</name>
-	<description>Demo project for Spring Boot</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -37,22 +35,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- 顺序UUID -->
+		
 		<dependency>
-			<groupId>com.fasterxml.uuid</groupId>
-			<artifactId>java-uuid-generator</artifactId>
-			<version>3.1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.16.18</version>
-		</dependency>
-		<dependency>
-			<groupId>com.lmax.src</groupId>
-			<artifactId>disruptor</artifactId>
-			<version>3.4.3</version>
-		</dependency>
+			<groupId>com.bfxy</groupId>
+			<artifactId>disruptor-netty-com</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>		
 	</dependencies>
 
 	<build>
@@ -68,10 +56,9 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
 	</build>
-
 	<!-- 配置jar包的私服仓库  -->
 	<repositories>
 		<repository>
