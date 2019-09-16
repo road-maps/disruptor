@@ -8,6 +8,6 @@ public class Handler5 implements EventHandler<Trade> {
     @Override
     public void onEvent(Trade event, long l, boolean b) throws Exception {
         log.info("Handler5 : GET PRICE:{}",event.getPrice());
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 }

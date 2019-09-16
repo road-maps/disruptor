@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
 public class TradePublisher implements Runnable {
     private Disruptor<Trade> disruptor;
     private CountDownLatch latch;
-    private static int PUBLISH_COUNT = 1;
+    private static int PUBLISH_COUNT = 1000000;
     @Override
     public void run() {
         TradeEventTranslator eventTranslator = new TradeEventTranslator();

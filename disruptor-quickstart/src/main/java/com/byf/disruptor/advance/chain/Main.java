@@ -60,9 +60,10 @@ public class Main {
         CountDownLatch latch = new CountDownLatch(1);
         es1.submit(new TradePublisher(disruptor,latch));
         latch.await();
-//        disruptor.shutdown();
+        disruptor.shutdown();
 //        es1.shutdown();
 //        es2.shutdown();
         log.info("总耗时：{}",(System.currentTimeMillis()-begin));
+        es2.shutdown();
     }
 }

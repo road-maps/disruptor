@@ -11,6 +11,6 @@ public class Handler2 implements EventHandler<Trade> {
     public void onEvent(Trade event, long l, boolean b) throws Exception {
         log.info("Handler2 : SET ID");
         event.setId(UUID.randomUUID().toString());
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 }

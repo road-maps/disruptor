@@ -15,6 +15,6 @@ public class Handler1 implements EventHandler<Trade>, WorkHandler<Trade> {
     public void onEvent(Trade event) throws Exception {
         log.info("Handler1 : SET NAME");
         event.setName("H1");
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
     }
 }
