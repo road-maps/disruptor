@@ -11,6 +11,17 @@
 
     <artifactId>disruptor-quickstart</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+    </dependencies>
+
     <!-- 配置jar包的私服仓库  -->
     <repositories>
         <repository>

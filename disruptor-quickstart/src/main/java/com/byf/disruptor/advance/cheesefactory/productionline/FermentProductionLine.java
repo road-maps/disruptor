@@ -17,13 +17,9 @@ public class FermentProductionLine implements EventHandler<CheeseOrder>, WorkHan
     @Override
     public void onEvent(CheeseOrder cheeseOrder) throws Exception {
         log.info("【发酵剂生产线】拦截奶酪订单：{}", cheeseOrder.getSeq());
-        try {
-            // 生产牛奶
-            TimeUnit.SECONDS.sleep(cheeseOrder.getFerment());
-            log.info("发酵剂数量：{}, 生产完毕." ,cheeseOrder.getFerment());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // 生产牛奶
+        //TimeUnit.MILLISECONDS.sleep(cheeseOrder.getFerment());
+        log.info("发酵剂数量：{}, 生产完毕." ,cheeseOrder.getFerment());
     }
 
     @Override
